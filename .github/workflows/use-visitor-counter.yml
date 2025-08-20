@@ -4,9 +4,6 @@ on:
   workflow_dispatch:      # allows manual trigger
   schedule:
     - cron: '0 0 * * *'   # runs daily at midnight
-  pull_request:
-    branches:
-      - main
 
 permissions:
   contents: write
@@ -17,41 +14,51 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1. Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Clone visitor counter logic
+      # 2. Clone visitor counter logic
+      - name: Clone github-visitor-counter
         run: git clone --depth=1 https://github.com/brown9804/github-visitor-counter.git
 
+      # 3. Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
 
+      # 4. Install dependencies
       - name: Install dependencies
         run: |
           cd github-visitor-counter
           npm ci
 
+      # 5. Run visitor counter logic
       - name: Run visitor counter
-        run: node github-visitor-counter/update_repo_views_counter.js
+        run: |
+          node github-visitor-counter/update_repo_views_counter.js
         env:
-          REPO: AlbionaGashi/AlbionaGashi                    # Replace with your repo
-          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }} 
+          TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}   # PAT with repo access
+          REPO: AlbionaGashi/AlbionaGashi              # Replace with your GitHub username/repo
 
-      - name: Move generated files to root
+      # 6. Move generated badge and metrics to root
+      - name: Move outputs to root
         run: mv github-visitor-counter/views-badge.svg . && mv github-visitor-counter/metrics.json .
 
-      - name: Clean up
+      # 7. Clean up
+      - name: Clean up visitor counter logic
         run: rm -rf github-visitor-counter
 
+      # 8. Configure Git
       - name: Configure Git
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
+      # 9. Commit and push changes
       - name: Commit and push changes
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -59,4 +66,5 @@ jobs:
           git add views-badge.svg metrics.json
           git commit -m "Update visitor count" || echo "No changes to commit"
           git push origin HEAD:main
+
 
