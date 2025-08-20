@@ -17,7 +17,7 @@ Here are some ideas to get you started:
 
 
 <!-- START BADGE -->
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo)
+![Visitors](https://img.shields.io/badge/Visitors-0-pink?style=flat-square)
 <!-- END BADGE -->
 
 
