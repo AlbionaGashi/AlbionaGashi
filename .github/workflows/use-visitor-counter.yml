@@ -39,7 +39,7 @@ jobs:
         run: node github-visitor-counter/update_repo_views_counter.js
         env:
           TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}   # Your PAT
-          REPO: AlbionaGashi/my-repo                     # Replace with your repo
+          REPO: AlbionaGashi/AlbionaGashi                    # Replace with your repo
 
       - name: Move generated files to root
         run: mv github-visitor-counter/views-badge.svg . && mv github-visitor-counter/metrics.json .
