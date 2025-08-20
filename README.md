@@ -17,7 +17,8 @@ Here are some ideas to get you started:
 
 
 <!-- START BADGE -->
-![Visitors](https://img.shields.io/badge/Visitors-0-pink?style=flat-square)
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo&style=flat-square&type=page&countColor=pink&titleColor=white&icon=github)
+
 <!-- END BADGE -->
 
 
