@@ -17,8 +17,7 @@ Here are some ideas to get you started:
 
 
 <!-- START BADGE -->
-![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo&style=flat-square&type=page&countColor=pink&titleColor=white&icon=github)
-
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo&style=flat-square&countColor=%23FFC0CB&titleColor=white&icon=github)
 <!-- END BADGE -->
 
 
