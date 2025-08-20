@@ -16,8 +16,9 @@ Here are some ideas to get you started:
 -->
 
 <!-- START BADGE -->
-![Visitor Count](https://raw.githubusercontent.com/AlbionaGashi/my-repo/main/views-badge.svg)
+![Visitor Count](https://raw.githubusercontent.com/AlbionaGashi/AlbionaGashi/main/views-badge.svg)
 <!-- END BADGE -->
+
 
 
 
