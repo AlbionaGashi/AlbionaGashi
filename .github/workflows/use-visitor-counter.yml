@@ -1,9 +1,9 @@
 name: Update Visitor Counter
 
 on:
-  workflow_dispatch:      # allows manual trigger
+  workflow_dispatch:      # manual trigger
   schedule:
-    - cron: '0 0 * * *'   # runs daily at midnight
+    - cron: '0 0 * * *'   # daily at midnight
 
 permissions:
   contents: write
@@ -36,17 +36,19 @@ jobs:
           cd github-visitor-counter
           npm ci
 
-      # 5. Run visitor counter logic
+      # 5. Run visitor counter
       - name: Run visitor counter
         run: |
-          node github-visitor-counter/update_repo_views_counter.js
+          node github-visitor-counter/update_repo_views_counter.js || echo "Traffic data not available yet"
         env:
           TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}   # PAT with repo access
           REPO: AlbionaGashi/AlbionaGashi              # Replace with your GitHub username/repo
 
-      # 6. Move generated badge and metrics to root
+      # 6. Move generated files if they exist
       - name: Move outputs to root
-        run: mv github-visitor-counter/views-badge.svg . && mv github-visitor-counter/metrics.json .
+        run: |
+          mv github-visitor-counter/views-badge.svg . 2>/dev/null || echo "No badge generated yet"
+          mv github-visitor-counter/metrics.json . 2>/dev/null || echo "No metrics.json yet"
 
       # 7. Clean up
       - name: Clean up visitor counter logic
@@ -66,5 +68,6 @@ jobs:
           git add views-badge.svg metrics.json
           git commit -m "Update visitor count" || echo "No changes to commit"
           git push origin HEAD:main
+
 
 
