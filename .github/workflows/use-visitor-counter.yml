@@ -65,8 +65,11 @@ jobs:
         env:
           TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          git add views-badge.svg metrics.json
-          git commit -m "Update visitor count" || echo "No changes to commit"
+          # git add views-badge.svg metrics.json
+          # git add views-badge.svg metrics.json 2>/dev/null || echo "No files to add"
+          # git commit -m "Update visitor count" || echo "No changes to commit"
+          [ -f views-badge.svg ] && git add views-badge.svg
+          [ -f metrics.json ] && git add metrics.json
           git push origin HEAD:main
 
 
