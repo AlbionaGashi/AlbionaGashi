@@ -39,7 +39,8 @@ jobs:
         run: node github-visitor-counter/update_repo_views_counter.js
         env:
           TRAFFIC_TOKEN: ${{ secrets.TRAFFIC_TOKEN }}
-          REPO: ${{ github.repository }}
+          REPO: AlbionaGashi/my-repo
+
 
       - name: Move generated metrics.json to root
         run: mv github-visitor-counter/metrics.json .
