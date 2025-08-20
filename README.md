@@ -15,9 +15,11 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
+
 <!-- START BADGE -->
-![Visitor Count](https://raw.githubusercontent.com/AlbionaGashi/AlbionaGashi/main/views-badge.svg)
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo)
 <!-- END BADGE -->
+
 
 
 
