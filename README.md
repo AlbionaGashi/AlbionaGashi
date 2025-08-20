@@ -15,8 +15,8 @@ Here are some ideas to get you started:
 - ⚡ Fun fact: ...
 -->
 
- <div align="center"> 
-  <p>Visitor count</p>
-  <img src="https://profile-counter.glitch.me/AlbionaGashi/count.svg" alt="Visitor's Count" />
-</div>
+ <!-- START BADGE -->
+![Visitor Count](https://visitor-badge.laobi.icu/badge?page_id=AlbionaGashi.my-repo)
+<!-- END BADGE -->
+
 
